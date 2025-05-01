@@ -83,10 +83,9 @@ class: text-center
   flex-direction: column;
   padding: 2rem 1rem;
   text-align: center;
-  background-color: rgba(24, 24, 27, 0.5);
   border-radius: 0.75rem;
-  border: 1px solid #27272A;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 
 .stat-card:hover {

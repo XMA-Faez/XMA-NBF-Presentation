@@ -80,7 +80,7 @@ layout: center
   max-width: 850px;
   margin: 0 auto;
   padding: 1.5rem;
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
+  @apply bg-slate-900 border border-blue-950;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 175, 239, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -199,11 +199,10 @@ zoom: 0.8
   gap: 2rem;
 }
 .analysis-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
   border-radius: 0.5rem;
-  border: 1px solid #27272A;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 .analysis-card:hover {
   transform: scale(1.02);
@@ -334,11 +333,11 @@ zoom: 0.8
   gap: 2rem;
 }
 .opportunity-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
   border-radius: 0.5rem;
   border: 1px solid #27272A;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 .opportunity-card:hover {
   transform: translateY(-5px);
@@ -439,7 +438,6 @@ class: text-center
   margin-bottom: 2rem;
 }
 .methodology-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
   border-radius: 0.75rem;
   border: 1px solid #27272A;
   padding: 1.5rem;
@@ -448,6 +446,7 @@ class: text-center
   align-items: center;
   text-align: center;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 .methodology-card:hover {
   transform: translateY(-5px);
@@ -618,12 +617,12 @@ zoom: 0.7
   gap: 1.5rem;
 }
 .strategy-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
   border-radius: 0.5rem;
   border: 1px solid #27272A;
   padding: 1.5rem;
   transition: all 0.3s ease;
   text-align: left;
+  @apply bg-slate-900 border border-blue-950;
 }
 .strategy-card:hover {
   transform: scale(1.02);
@@ -726,7 +725,6 @@ zoom: 0.8
   gap: 1.5rem;
 }
 .partner-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(39, 39, 42, 0.5));
   border-radius: 0.5rem;
   border: 1px solid #27272A;
   padding: 1.5rem;
@@ -735,6 +733,7 @@ zoom: 0.8
   align-items: center;
   text-align: center;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 .partner-card:hover {
   transform: translateY(-5px);
@@ -821,12 +820,12 @@ class: text-center
   margin: 0 auto;
 }
 .next-step-card {
-  background: linear-gradient(to bottom right, rgba(24, 24, 27, 0.8), rgba(0, 40, 85, 0.1));
   border-radius: 0.5rem;
   border: 1px solid #27272A;
   padding: 1.5rem;
   text-align: left;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 .next-step-card:hover {
   transform: scale(1.03);

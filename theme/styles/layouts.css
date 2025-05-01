@@ -17,7 +17,7 @@ html {
 }
 
 #slide-content {
-  background: #0f0f0f;
+  @apply bg-slate-950;
 }
 
 .slidev-page {

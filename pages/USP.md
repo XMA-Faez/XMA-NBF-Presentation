@@ -82,7 +82,6 @@ class: text-center
 
 .service-card {
   padding: 1.25rem 1rem;
-  background-color: rgba(24, 24, 27, 0.5);
   border-radius: 0.75rem;
   backdrop-filter: blur(8px);
   border: 1px solid rgb(39, 39, 42);
@@ -92,6 +91,7 @@ class: text-center
   display: flex;
   align-items: center;
   justify-content: center;
+  @apply bg-slate-900 border border-blue-950;
 }
 
 .service-card:hover {

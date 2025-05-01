@@ -303,8 +303,8 @@ const contentError = computed(() => {
   return activeTab.value === 'videos' ? error.value : graphicsError.value;
 });
 
-// Filtered content based on active tab and filter
-const filteredContent = computed(() => {
+// Filteblue content based on active tab and filter
+const filteblueContent = computed(() => {
   const content = activeTab.value === 'videos' ? videos.value : graphics.value;
 
   // If the filter is 'all', return all content
@@ -331,8 +331,8 @@ const contentContainerClass = computed(() => {
 // Use computed properties to conditionally style the items based on active tab
 const contentItemClass = computed(() => {
   return activeTab.value === 'videos'
-    ? 'bg-zinc-800/40 rounded-lg overflow-hidden group' // Grid item style
-    : 'break-inside-avoid mb-4 bg-zinc-800/40 rounded-lg overflow-hidden group'; // Masonry item style
+    ? 'bg-slate-800/40 rounded-lg overflow-hidden group' // Grid item style
+    : 'break-inside-avoid mb-4 bg-slate-800/40 rounded-lg overflow-hidden group'; // Masonry item style
 });
 
 // Function to handle the intersection observer callback
@@ -418,7 +418,7 @@ onMounted(() => {
   <div class="flex w-full items-center justify-center gap-4 mb-4">
     <button v-for="tab in ['videos', 'graphics']" :key="tab" @click="activeTab = tab" :class="[
       'px-4 text-sm py-2 rounded-lg font-medium transition-colors',
-      activeTab === tab ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:text-white'
+      activeTab === tab ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white'
     ]">
       {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
     </button>
@@ -434,7 +434,7 @@ onMounted(() => {
         'px-3 text-xs py-1 rounded-full font-medium transition-colors',
         activeFilter === filter.id
           ? 'bg-[#00AFEF] text-white'
-          : 'bg-zinc-800/70 text-zinc-300 hover:bg-zinc-700'
+          : 'bg-slate-800/70 text-slate-300 hover:bg-slate-700'
       ]"
     >
       {{ filter.label }}
@@ -443,22 +443,22 @@ onMounted(() => {
 
   <!-- Loading state -->
   <div v-if="isContentLoading" class="flex justify-center items-center py-12">
-    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
   </div>
 
   <!-- Error state -->
-  <div v-else-if="contentError" class="text-center py-12 text-red-500">
+  <div v-else-if="contentError" class="text-center py-12 text-blue-500">
     {{ contentError }}
   </div>
 
   <!-- Empty state -->
-  <div v-else-if="filteredContent.length === 0" class="text-center py-12 text-zinc-400">
+  <div v-else-if="filteblueContent.length === 0" class="text-center py-12 text-slate-400">
     <div class="i-lucide-search-x w-16 h-16 mx-auto mb-4 opacity-50"></div>
     <p class="text-xl font-medium mb-2">No items found</p>
     <p>No {{ activeTab }} matching the "{{ activeFilters.find(f => f.id === activeFilter)?.label }}" filter.</p>
     <button
       @click="activeFilter = 'all'"
-      class="mt-4 px-4 py-2 bg-zinc-800 rounded-lg text-white text-sm hover:bg-zinc-700"
+      class="mt-4 px-4 py-2 bg-slate-800 rounded-lg text-white text-sm hover:bg-slate-700"
     >
       View all {{ activeTab }}
     </button>
@@ -466,11 +466,11 @@ onMounted(() => {
 
   <!-- Dynamic layout container - switches between grid and masonry -->
   <div v-else :class="contentContainerClass">
-    <div v-for="item in filteredContent" :key="item.id" :class="contentItemClass">
+    <div v-for="item in filteblueContent" :key="item.id" :class="contentItemClass">
       <!-- Content Preview -->
       <div :class="[
         getAspectRatioClass(item.format, activeTab),
-        'bg-zinc-900 relative group-hover:opacity-90 transition-opacity cursor-pointer lazy-load-item'
+        'bg-slate-900 relative group-hover:opacity-90 transition-opacity cursor-pointer lazy-load-item'
       ]"
       :data-item-id="item.id"
       :data-item-type="activeTab"
@@ -497,14 +497,14 @@ onMounted(() => {
         <div v-if="!item.url" class="absolute inset-0 flex items-center justify-center">
           <div :class="[
             activeTab === 'videos' ? 'i-lucide-play' : 'i-lucide-image',
-            'w-12 h-12 text-zinc-600 group-hover:text-zinc-400 transition-colors'
+            'w-12 h-12 text-slate-600 group-hover:text-slate-400 transition-colors'
           ]" />
         </div>
 
         <!-- Play button overlay for videos -->
         <div v-if="activeTab === 'videos'" class="absolute inset-0 flex items-center justify-center">
           <div
-            class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-red-600/50 transition-colors">
+            class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-blue-600/50 transition-colors">
             <div class="i-lucide-play w-8 h-8 text-white ml-1"></div>
           </div>
         </div>
@@ -513,7 +513,7 @@ onMounted(() => {
         <div v-if="activeTab === 'graphics'"
           class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
           <div
-            class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-red-600/50 transition-colors">
+            class="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-blue-600/50 transition-colors">
             <div class="i-lucide-eye w-8 h-8 text-white"></div>
           </div>
         </div>
@@ -525,7 +525,7 @@ onMounted(() => {
             :key="tag"
             class="px-2 py-0.5 bg-black/70 backdrop-blur-sm rounded-full text-xs font-medium"
             :class="{
-              'text-red-500': tag === 'xma',
+              'text-blue-500': tag === 'xma',
               'text-blue-400': tag === 'service' || tag === 'nbd',
               'text-orange-400': tag === 'product' || tag === 'mashreq',
               'text-purple-400': tag === 'dib',
@@ -547,7 +547,7 @@ onMounted(() => {
     <div class="relative w-full h-full p-4 md:p-6 flex flex-col items-center justify-center" @click.stop>
       <!-- Close button - Fixed position for better accessibility -->
       <button
-        class="absolute top-4 right-4 z-10 bg-red-600 hover:bg-red-700 rounded-full p-2 text-white transition-colors"
+        class="absolute top-4 right-4 z-10 bg-blue-600 hover:bg-red-700 rounded-full p-2 text-white transition-colors"
         @click="closeVideoPlayer">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -568,9 +568,9 @@ onMounted(() => {
           <span
             v-for="tag in activeVideo.tags.filter(t => activeFilters.some(f => f.id === t))"
             :key="tag"
-            class="px-2 py-0.5 bg-zinc-800 rounded-full text-xs font-medium"
+            class="px-2 py-0.5 bg-slate-800 rounded-full text-xs font-medium"
             :class="{
-              'text-red-500': tag === 'best-performing',
+              'text-blue-500': tag === 'best-performing',
               'text-blue-400': tag === 'service',
               'text-green-400': tag === 'product'
             }"
@@ -595,7 +595,7 @@ onMounted(() => {
     <div class="relative w-full h-full p-4 md:p-6 flex flex-col items-center justify-center" @click.stop>
       <!-- Close button -->
       <button
-        class="absolute top-4 right-4 z-10 bg-red-600 hover:bg-red-700 rounded-full p-2 text-white transition-colors"
+        class="absolute top-4 right-4 z-10 bg-blue-600 hover:bg-red-700 rounded-full p-2 text-white transition-colors"
         @click="closeGraphicPreview">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -613,15 +613,15 @@ onMounted(() => {
 
         <!-- Graphic details -->
         <div class="flex gap-2 mb-2 px-2 flex-wrap">
-          <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.type }}</span>
-          <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.industry }}</span>
-          <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.width }} × {{ activeGraphic?.height }}</span>
+          <span class="px-2 py-1 rounded bg-slate-700 text-xs text-white">{{ activeGraphic?.type }}</span>
+          <span class="px-2 py-1 rounded bg-slate-700 text-xs text-white">{{ activeGraphic?.industry }}</span>
+          <span class="px-2 py-1 rounded bg-slate-700 text-xs text-white">{{ activeGraphic?.width }} × {{ activeGraphic?.height }}</span>
 
           <!-- Display tags if the graphic has them -->
           <span
             v-for="tag in (activeGraphic?.tags || []).filter(t => activeFilters.some(f => f.id === t))"
             :key="tag"
-            class="px-2 py-1 rounded bg-zinc-700 text-xs font-medium"
+            class="px-2 py-1 rounded bg-slate-700 text-xs font-medium"
             :class="{
               'text-red-500': tag === 'xma',
               'text-blue-400': tag === 'service' || tag === 'nbd',
