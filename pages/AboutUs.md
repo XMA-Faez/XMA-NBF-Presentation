@@ -126,12 +126,12 @@ class: text-center
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background-color: rgba(24, 24, 27, 0.5);
   border-radius: 0.5rem;
   backdrop-filter: blur(4px);
   transform: none;
   border: 1px solid #27272A;
   transition: all 0.3s ease;
+  @apply bg-slate-900 border border-blue-950;
 }
 
 .team-member:hover {
