@@ -11,7 +11,7 @@
     "folder": "root",
     "filename": "ztxhzeq0qpbbgx2u6dc5",
     "duration": 78.994708,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/ztxhzeq0qpbbgx2u6dc5.jpg?_a=BAMAJaRg0",
     "size_formatted": "14.18 MB",
     "created_at_formatted": "5/1/2025, 2:21:38 PM"
@@ -28,7 +28,7 @@
     "folder": "root",
     "filename": "jcnhgu74h8n5hntmcxhq",
     "duration": 86.955873,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/jcnhgu74h8n5hntmcxhq.jpg?_a=BAMAJaRg0",
     "size_formatted": "12.85 MB",
     "created_at_formatted": "5/1/2025, 2:21:26 PM"
@@ -45,7 +45,7 @@
     "folder": "root",
     "filename": "xzwllvvqs0ebe758nfga",
     "duration": 42.583991,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/xzwllvvqs0ebe758nfga.jpg?_a=BAMAJaRg0",
     "size_formatted": "5.9 MB",
     "created_at_formatted": "5/1/2025, 2:21:24 PM"
@@ -62,7 +62,7 @@
     "folder": "root",
     "filename": "o4gh8taypolfe86bstcv",
     "duration": 22.059,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/o4gh8taypolfe86bstcv.jpg?_a=BAMAJaRg0",
     "size_formatted": "655.28 KB",
     "created_at_formatted": "5/1/2025, 1:09:29 PM"
@@ -79,7 +79,7 @@
     "folder": "root",
     "filename": "alvun5bplcvgynvndrlk",
     "duration": 24.149,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/alvun5bplcvgynvndrlk.jpg?_a=BAMAJaRg0",
     "size_formatted": "516.22 KB",
     "created_at_formatted": "5/1/2025, 1:09:29 PM"
@@ -96,7 +96,7 @@
     "folder": "root",
     "filename": "bq5xlqgrv2ykocms3n2o",
     "duration": 17.62,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/bq5xlqgrv2ykocms3n2o.jpg?_a=BAMAJaRg0",
     "size_formatted": "401.28 KB",
     "created_at_formatted": "5/1/2025, 1:09:29 PM"
@@ -113,7 +113,7 @@
     "folder": "root",
     "filename": "icgfmwj1skzw8dvxirke",
     "duration": 15.033333,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/icgfmwj1skzw8dvxirke.jpg?_a=BAMAJaRg0",
     "size_formatted": "177.19 KB",
     "created_at_formatted": "5/1/2025, 1:09:29 PM"
@@ -130,7 +130,7 @@
     "folder": "root",
     "filename": "cnky7ymix8nudvh6pczx",
     "duration": 15,
-    "tags": [],
+    "tags": ["fab"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/cnky7ymix8nudvh6pczx.jpg?_a=BAMAJaRg0",
     "size_formatted": "169.15 KB",
     "created_at_formatted": "5/1/2025, 1:09:28 PM"
@@ -147,26 +147,9 @@
     "folder": "root",
     "filename": "ybx4urtbdmrpaotxhfuh",
     "duration": 10,
-    "tags": [],
+    "tags": ["fab"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/ybx4urtbdmrpaotxhfuh.jpg?_a=BAMAJaRg0",
     "size_formatted": "171.84 KB",
-    "created_at_formatted": "5/1/2025, 1:09:28 PM"
-  },
-  {
-    "public_id": "mc87xioli2im8rilj2yp",
-    "format": "mp4",
-    "url": "https://res.cloudinary.com/dw1j7izud/video/upload/v1746090568/mc87xioli2im8rilj2yp.mp4",
-    "created_at": "2025-05-01T09:09:28+00:00",
-    "width": 640,
-    "height": 360,
-    "bytes": 412943,
-    "resource_type": "video",
-    "folder": "root",
-    "filename": "mc87xioli2im8rilj2yp",
-    "duration": 22.272,
-    "tags": [],
-    "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/mc87xioli2im8rilj2yp.jpg?_a=BAMAJaRg0",
-    "size_formatted": "403.26 KB",
     "created_at_formatted": "5/1/2025, 1:09:28 PM"
   },
   {
@@ -181,7 +164,7 @@
     "folder": "root",
     "filename": "gl2yhofzjeqaj5fdpyac",
     "duration": 35.072,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/gl2yhofzjeqaj5fdpyac.jpg?_a=BAMAJaRg0",
     "size_formatted": "695.2 KB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -198,7 +181,7 @@
     "folder": "root",
     "filename": "ucptcgepnx17xfwfbs5q",
     "duration": 63.744,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/ucptcgepnx17xfwfbs5q.jpg?_a=BAMAJaRg0",
     "size_formatted": "1.57 MB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -215,7 +198,7 @@
     "folder": "root",
     "filename": "o874elxywadlr7xeyjgx",
     "duration": 28.117,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/o874elxywadlr7xeyjgx.jpg?_a=BAMAJaRg0",
     "size_formatted": "548.31 KB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -232,7 +215,7 @@
     "folder": "root",
     "filename": "ytjkqwlzagiyzfophvpp",
     "duration": 15.019,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/ytjkqwlzagiyzfophvpp.jpg?_a=BAMAJaRg0",
     "size_formatted": "455.05 KB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -249,7 +232,7 @@
     "folder": "root",
     "filename": "nds6ed2clgsnrmqyssyp",
     "duration": 20.011,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/nds6ed2clgsnrmqyssyp.jpg?_a=BAMAJaRg0",
     "size_formatted": "381.67 KB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -266,7 +249,7 @@
     "folder": "root",
     "filename": "wgy9benucqasy2mmemvt",
     "duration": 29.44,
-    "tags": [],
+    "tags": ["nbd"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/wgy9benucqasy2mmemvt.jpg?_a=BAMAJaRg0",
     "size_formatted": "467.69 KB",
     "created_at_formatted": "5/1/2025, 1:09:27 PM"
@@ -283,7 +266,7 @@
     "folder": "root",
     "filename": "bmr5t3qz1p1irpbwn9oc",
     "duration": 19.712,
-    "tags": [],
+    "tags": ["dib"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/bmr5t3qz1p1irpbwn9oc.jpg?_a=BAMAJaRg0",
     "size_formatted": "357.52 KB",
     "created_at_formatted": "5/1/2025, 1:09:26 PM"
@@ -306,23 +289,6 @@
     "created_at_formatted": "5/1/2025, 1:09:26 PM"
   },
   {
-    "public_id": "i8btebdmkpugho57malx",
-    "format": "mp4",
-    "url": "https://res.cloudinary.com/dw1j7izud/video/upload/v1746090565/i8btebdmkpugho57malx.mp4",
-    "created_at": "2025-05-01T09:09:25+00:00",
-    "width": 640,
-    "height": 360,
-    "bytes": 372301,
-    "resource_type": "video",
-    "folder": "root",
-    "filename": "i8btebdmkpugho57malx",
-    "duration": 19.776,
-    "tags": [],
-    "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/i8btebdmkpugho57malx.jpg?_a=BAMAJaRg0",
-    "size_formatted": "363.58 KB",
-    "created_at_formatted": "5/1/2025, 1:09:25 PM"
-  },
-  {
     "public_id": "xnjukomkk6r4ldamskqb",
     "format": "mp4",
     "url": "https://res.cloudinary.com/dw1j7izud/video/upload/v1746090565/xnjukomkk6r4ldamskqb.mp4",
@@ -334,7 +300,7 @@
     "folder": "root",
     "filename": "xnjukomkk6r4ldamskqb",
     "duration": 22.533333,
-    "tags": [],
+    "tags": ["dib"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/xnjukomkk6r4ldamskqb.jpg?_a=BAMAJaRg0",
     "size_formatted": "399.55 KB",
     "created_at_formatted": "5/1/2025, 1:09:25 PM"
@@ -351,7 +317,7 @@
     "folder": "root",
     "filename": "xoa5dxcnbyakmqqb5xud",
     "duration": 20.544,
-    "tags": [],
+    "tags": ["adcb"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/xoa5dxcnbyakmqqb5xud.jpg?_a=BAMAJaRg0",
     "size_formatted": "235.91 KB",
     "created_at_formatted": "5/1/2025, 1:09:25 PM"
@@ -368,7 +334,7 @@
     "folder": "root",
     "filename": "bl49xvjsecdrkmlmffd6",
     "duration": 15.033333,
-    "tags": [],
+    "tags": ["mashreq"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/bl49xvjsecdrkmlmffd6.jpg?_a=BAMAJaRg0",
     "size_formatted": "263.84 KB",
     "created_at_formatted": "5/1/2025, 1:09:25 PM"
@@ -385,7 +351,7 @@
     "folder": "root",
     "filename": "fupeeeikni4us6hlwwea",
     "duration": 15.019,
-    "tags": [],
+    "tags": ["adcb"],
     "thumbnail": "https://res.cloudinary.com/dw1j7izud/video/upload/c_scale,w_320/so_0/fupeeeikni4us6hlwwea.jpg?_a=BAMAJaRg0",
     "size_formatted": "199.83 KB",
     "created_at_formatted": "5/1/2025, 1:09:25 PM"

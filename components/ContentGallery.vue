@@ -29,7 +29,13 @@ const loadedResources = ref(new Map())
 const inlineImagePlaceholder = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=';
 
 // Available filters based on active tab
-const videoFilters = []
+const videoFilters = [
+  { id: 'all', label: 'All' },
+  { id: 'mashreq', label: 'Mashreq' },
+  { id: 'dib', label: 'DIB' },
+  { id: 'nbd', label: 'NBD' },
+  { id: 'adcb', label: 'ADCB' }
+]
 
 // New bank-specific filters for graphics
 const graphicFilters = [
@@ -426,7 +432,7 @@ onMounted(() => {
       :class="[
         'px-3 text-xs py-1 rounded-full font-medium transition-colors',
         activeFilter === filter.id
-          ? 'bg-red-600 text-white'
+          ? 'bg-[#00AFEF] text-white'
           : 'bg-zinc-800/70 text-zinc-300 hover:bg-zinc-700'
       ]"
     >
