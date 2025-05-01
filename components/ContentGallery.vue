@@ -31,6 +31,7 @@ const inlineImagePlaceholder = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA
 // Available filters based on active tab
 const videoFilters = [
   { id: 'all', label: 'All' },
+  { id: 'xma', label: 'XMA' },
   { id: 'mashreq', label: 'Mashreq' },
   { id: 'dib', label: 'DIB' },
   { id: 'nbd', label: 'NBD' },
@@ -524,9 +525,9 @@ onMounted(() => {
             :key="tag"
             class="px-2 py-0.5 bg-black/70 backdrop-blur-sm rounded-full text-xs font-medium"
             :class="{
-              'text-red-500': tag === 'best-performing',
+              'text-red-500': tag === 'xma',
               'text-blue-400': tag === 'service' || tag === 'nbd',
-              'text-green-400': tag === 'product' || tag === 'mashreq',
+              'text-orange-400': tag === 'product' || tag === 'mashreq',
               'text-purple-400': tag === 'dib',
               'text-yellow-400': tag === 'adcb',
               'text-teal-400': tag === 'bank-graphic'
@@ -622,7 +623,7 @@ onMounted(() => {
             :key="tag"
             class="px-2 py-1 rounded bg-zinc-700 text-xs font-medium"
             :class="{
-              'text-red-500': tag === 'best-performing',
+              'text-red-500': tag === 'xma',
               'text-blue-400': tag === 'service' || tag === 'nbd',
               'text-green-400': tag === 'product' || tag === 'mashreq',
               'text-purple-400': tag === 'dib',
