@@ -28,13 +28,22 @@ const loadedResources = ref(new Map())
 // Base64 encoded tiny placeholder image to avoid network requests
 const inlineImagePlaceholder = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=';
 
-// Available filters for videos
-const filters = [
+// Available filters based on active tab
+const videoFilters = []
+
+// New bank-specific filters for graphics
+const graphicFilters = [
   { id: 'all', label: 'All' },
-  { id: 'service', label: 'Service' },
-  { id: 'product', label: 'Product' },
-  //{ id: 'best-performing', label: 'Best Performing' }
+  { id: 'mashreq', label: 'Mashreq' },
+  { id: 'dib', label: 'DIB' },
+  { id: 'nbd', label: 'NBD' },
+  { id: 'adcb', label: 'ADCB' }
 ]
+
+// Function to get active filters based on tab
+const activeFilters = computed(() => {
+  return activeTab.value === 'videos' ? videoFilters : graphicFilters;
+});
 
 // Function to format video data
 const formatVideoData = (item, index) => {
@@ -126,7 +135,7 @@ const fetchCloudinaryVideos = async () => {
   if (videos.value.length > 0 && !isLoading.value) {
     return;
   }
-  
+
   try {
     isLoading.value = true;
 
@@ -149,7 +158,7 @@ const fetchCloudinaryVideos = async () => {
 
     // Format the videos
     videos.value = data.map(formatVideoData);
-    
+
     // Cache the formatted data
     sessionStorage.setItem('cachedVideos', JSON.stringify(videos.value));
 
@@ -167,7 +176,7 @@ const fetchCloudinaryGraphics = async () => {
   if (graphics.value.length > 0 && !graphicsLoading.value) {
     return;
   }
-  
+
   try {
     graphicsLoading.value = true;
 
@@ -190,7 +199,7 @@ const fetchCloudinaryGraphics = async () => {
 
     // Format the graphics
     graphics.value = data.map(formatGraphicData);
-    
+
     // Cache the formatted data
     sessionStorage.setItem('cachedGraphics', JSON.stringify(graphics.value));
 
@@ -264,8 +273,11 @@ const closeGraphicPreview = () => {
   }, 300);
 }
 
-// Watch for tab changes
+// When tab changes, reset filter to 'all'
 watch(activeTab, (newTab, oldTab) => {
+  // Reset filter to 'all' when switching tabs
+  activeFilter.value = 'all';
+
   // Fetch data for the active tab if it's not already loaded
   if (newTab === 'videos') {
     fetchCloudinaryVideos();
@@ -287,15 +299,15 @@ const contentError = computed(() => {
 // Filtered content based on active tab and filter
 const filteredContent = computed(() => {
   const content = activeTab.value === 'videos' ? videos.value : graphics.value;
-  
+
   // If the filter is 'all', return all content
   if (activeFilter.value === 'all') {
     return content;
   }
-  
+
   // Convert filter to tag format (lowercase, no spaces)
   const filterTag = activeFilter.value;
-  
+
   // Return only content that has the selected tag
   return content.filter(item => {
     return item.tags && Array.isArray(item.tags) && item.tags.includes(filterTag);
@@ -304,7 +316,7 @@ const filteredContent = computed(() => {
 
 // Use computed properties to conditionally style the container based on active tab
 const contentContainerClass = computed(() => {
-  return activeTab.value === 'videos' 
+  return activeTab.value === 'videos'
     ? 'grid grid-cols-3 gap-4 pb-12' // Grid for videos
     : 'columns-3 gap-4 space-y-4 pb-12'; // Masonry for graphics
 });
@@ -323,7 +335,7 @@ const handleIntersection = (entries, observer) => {
       // Get the item ID from the data attribute
       const itemId = entry.target.dataset.itemId;
       const type = entry.target.dataset.itemType;
-      
+
       if (type === 'videos') {
         const video = videos.value.find(v => v.id.toString() === itemId);
         if (video && !video.loaded) {
@@ -337,7 +349,7 @@ const handleIntersection = (entries, observer) => {
           loadedResources.value.set(graphic.id, true);
         }
       }
-      
+
       // Stop observing this element
       observer.unobserve(entry.target);
     }
@@ -359,24 +371,24 @@ onMounted(() => {
     rootMargin: '100px', // Load images 100px before they appear in the viewport
     threshold: 0.1
   });
-  
+
   // Observe elements when DOM updates
   const observeElements = () => {
     document.querySelectorAll('.lazy-load-item').forEach(el => {
       observer.observe(el);
     });
   };
-  
+
   // Set up a MutationObserver to detect when new elements are added
   const mutationObserver = new MutationObserver(() => {
     observeElements();
   });
-  
+
   mutationObserver.observe(document.body, {
     childList: true,
     subtree: true
   });
-  
+
   // Initial observation
   setTimeout(observeElements, 500);
 
@@ -397,11 +409,28 @@ onMounted(() => {
 <template>
   <!-- Main Tabs -->
   <div class="flex w-full items-center justify-center gap-4 mb-4">
-    <button v-for="tab in ['videos', 'graphics']" :key="tab" @click="activeTab = tab; activeFilter = 'all'" :class="[
+    <button v-for="tab in ['videos', 'graphics']" :key="tab" @click="activeTab = tab" :class="[
       'px-4 text-sm py-2 rounded-lg font-medium transition-colors',
       activeTab === tab ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:text-white'
     ]">
       {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
+    </button>
+  </div>
+
+  <!-- Filter Tabs - Now using dynamic filters based on active tab -->
+  <div class="flex flex-wrap gap-2 mb-8 justify-center">
+    <button
+      v-for="filter in activeFilters"
+      :key="filter.id"
+      @click="activeFilter = filter.id"
+      :class="[
+        'px-3 text-xs py-1 rounded-full font-medium transition-colors',
+        activeFilter === filter.id
+          ? 'bg-red-600 text-white'
+          : 'bg-zinc-800/70 text-zinc-300 hover:bg-zinc-700'
+      ]"
+    >
+      {{ filter.label }}
     </button>
   </div>
 
@@ -419,9 +448,9 @@ onMounted(() => {
   <div v-else-if="filteredContent.length === 0" class="text-center py-12 text-zinc-400">
     <div class="i-lucide-search-x w-16 h-16 mx-auto mb-4 opacity-50"></div>
     <p class="text-xl font-medium mb-2">No items found</p>
-    <p v-if="activeTab === 'videos'">No videos matching the "{{ filters.find(f => f.id === activeFilter)?.label }}" filter.</p>
-    <button 
-      @click="activeFilter = 'all'" 
+    <p>No {{ activeTab }} matching the "{{ activeFilters.find(f => f.id === activeFilter)?.label }}" filter.</p>
+    <button
+      @click="activeFilter = 'all'"
       class="mt-4 px-4 py-2 bg-zinc-800 rounded-lg text-white text-sm hover:bg-zinc-700"
     >
       View all {{ activeTab }}
@@ -435,24 +464,24 @@ onMounted(() => {
       <div :class="[
         getAspectRatioClass(item.format, activeTab),
         'bg-zinc-900 relative group-hover:opacity-90 transition-opacity cursor-pointer lazy-load-item'
-      ]" 
-      :data-item-id="item.id" 
+      ]"
+      :data-item-id="item.id"
       :data-item-type="activeTab"
       @click="activeTab === 'videos' ? playVideo(item) : previewGraphic(item)">
         <!-- Video preview image - with lazy loading -->
-        <img v-if="activeTab === 'videos'" 
+        <img v-if="activeTab === 'videos'"
           loading="lazy"
-          :src="isResourceLoaded(item) && item.thumbnailUrl ? item.thumbnailUrl : inlineImagePlaceholder" 
+          :src="isResourceLoaded(item) && item.thumbnailUrl ? item.thumbnailUrl : inlineImagePlaceholder"
           :alt="item.title"
           class="w-full h-full object-cover"
           @load="markResourceLoaded(item)"
           @error="$event.target.src = inlineImagePlaceholder" />
 
         <!-- Image for graphics - with lazy loading -->
-        <img v-else 
+        <img v-else
           loading="lazy"
-          :src="isResourceLoaded(item) ? (item.url || inlineImagePlaceholder) : inlineImagePlaceholder" 
-          :alt="item.title" 
+          :src="isResourceLoaded(item) ? (item.url || inlineImagePlaceholder) : inlineImagePlaceholder"
+          :alt="item.title"
           class="w-full h-full object-cover"
           @load="markResourceLoaded(item)"
           @error="$event.target.src = inlineImagePlaceholder" />
@@ -481,20 +510,23 @@ onMounted(() => {
             <div class="i-lucide-eye w-8 h-8 text-white"></div>
           </div>
         </div>
-        
-        <!-- Tags/badges (if item has tags and they are in our filter list) -->
+
+        <!-- Tags/badges (if item has tags and they are in our active filters list) -->
         <div v-if="item.tags && item.tags.length > 0" class="absolute top-2 right-2 flex gap-1.5 flex-wrap justify-end max-w-[70%]">
-          <span 
-            v-for="tag in item.tags.filter(t => filters.some(f => f.id === t))" 
+          <span
+            v-for="tag in item.tags.filter(t => activeFilters.some(f => f.id === t))"
             :key="tag"
             class="px-2 py-0.5 bg-black/70 backdrop-blur-sm rounded-full text-xs font-medium"
             :class="{
               'text-red-500': tag === 'best-performing',
-              'text-blue-400': tag === 'service',
-              'text-green-400': tag === 'product'
+              'text-blue-400': tag === 'service' || tag === 'nbd',
+              'text-green-400': tag === 'product' || tag === 'mashreq',
+              'text-purple-400': tag === 'dib',
+              'text-yellow-400': tag === 'adcb',
+              'text-teal-400': tag === 'bank-graphic'
             }"
           >
-            {{ filters.find(f => f.id === tag)?.label }}
+            {{ activeFilters.find(f => f.id === tag)?.label }}
           </span>
         </div>
       </div>
@@ -526,8 +558,8 @@ onMounted(() => {
 
         <!-- Tags/badges if the video has them -->
         <div v-if="activeVideo && activeVideo.tags && activeVideo.tags.length > 0" class="flex gap-2 mb-2 px-2 flex-wrap">
-          <span 
-            v-for="tag in activeVideo.tags.filter(t => filters.some(f => f.id === t))" 
+          <span
+            v-for="tag in activeVideo.tags.filter(t => activeFilters.some(f => f.id === t))"
             :key="tag"
             class="px-2 py-0.5 bg-zinc-800 rounded-full text-xs font-medium"
             :class="{
@@ -536,7 +568,7 @@ onMounted(() => {
               'text-green-400': tag === 'product'
             }"
           >
-            {{ filters.find(f => f.id === tag)?.label }}
+            {{ activeFilters.find(f => f.id === tag)?.label }}
           </span>
         </div>
 
@@ -577,19 +609,22 @@ onMounted(() => {
           <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.type }}</span>
           <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.industry }}</span>
           <span class="px-2 py-1 rounded bg-zinc-700 text-xs text-white">{{ activeGraphic?.width }} × {{ activeGraphic?.height }}</span>
-          
+
           <!-- Display tags if the graphic has them -->
-          <span 
-            v-for="tag in (activeGraphic?.tags || []).filter(t => filters.some(f => f.id === t))" 
+          <span
+            v-for="tag in (activeGraphic?.tags || []).filter(t => activeFilters.some(f => f.id === t))"
             :key="tag"
             class="px-2 py-1 rounded bg-zinc-700 text-xs font-medium"
             :class="{
               'text-red-500': tag === 'best-performing',
-              'text-blue-400': tag === 'service',
-              'text-green-400': tag === 'product'
+              'text-blue-400': tag === 'service' || tag === 'nbd',
+              'text-green-400': tag === 'product' || tag === 'mashreq',
+              'text-purple-400': tag === 'dib',
+              'text-yellow-400': tag === 'adcb',
+              'text-teal-400': tag === 'bank-graphic'
             }"
           >
-            {{ filters.find(f => f.id === tag)?.label }}
+            {{ activeFilters.find(f => f.id === tag)?.label }}
           </span>
         </div>
 
@@ -620,7 +655,7 @@ onMounted(() => {
   .grid-cols-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
+
   .columns-3 {
     column-count: 2;
   }
@@ -630,7 +665,7 @@ onMounted(() => {
   .grid-cols-3 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-  
+
   .columns-3 {
     column-count: 1;
   }
