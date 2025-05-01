@@ -396,29 +396,12 @@ onMounted(() => {
 
 <template>
   <!-- Main Tabs -->
-  <div class="flex gap-4 mb-4">
+  <div class="flex w-full items-center justify-center gap-4 mb-4">
     <button v-for="tab in ['videos', 'graphics']" :key="tab" @click="activeTab = tab; activeFilter = 'all'" :class="[
       'px-4 text-sm py-2 rounded-lg font-medium transition-colors',
       activeTab === tab ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:text-white'
     ]">
       {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
-    </button>
-  </div>
-
-  <!-- Filter Tabs (only show for videos tab) -->
-  <div v-if="activeTab === 'videos'" class="flex gap-2 mb-8 flex-wrap">
-    <button 
-      v-for="filter in filters" 
-      :key="filter.id" 
-      @click="activeFilter = filter.id" 
-      :class="[
-        'px-3 text-xs py-1 rounded-full font-medium transition-colors',
-        activeFilter === filter.id 
-          ? 'bg-red-600 text-white' 
-          : 'bg-zinc-800/70 text-zinc-300 hover:bg-zinc-700'
-      ]"
-    >
-      {{ filter.label }}
     </button>
   </div>
 

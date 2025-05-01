@@ -11,7 +11,7 @@ class: text-center
       v-motion
       :initial="{ filter: 'blur(12px)', opacity: 0, scale: 0.8 }"
       :enter="{ filter: 'blur(0px)', opacity: 1, scale: 1 }"
-      class="text-center text-4xl font-bold bg-gradient-to-r leading-[50px] from-red-600 to-red-500 bg-clip-text text-transparent"
+      class="agency-title"
     >
       Advertising Agency
     </div>
@@ -27,9 +27,9 @@ class: text-center
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, scale: 0.8 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, scale: 1 }"
-          class="text-3xl font-bold text-center"
+          class="team-label"
         >
-          <span class="text-red-600">15</span> In-House<br/>Professionals
+          <span class="highlight-text">20</span> In-House<br/>Professionals
         </div>
       </div>
       <!-- Right Column: Team Members -->
@@ -39,9 +39,9 @@ class: text-center
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-video class="w-6 h-6 text-red-500"/>
+          <lucide-video class="member-icon"/>
           <span class="text-sm">Videographers</span>
         </div>
         <div
@@ -49,9 +49,9 @@ class: text-center
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-clapperboard class="w-6 h-6 text-red-500"/>
+          <lucide-clapperboard class="member-icon"/>
           <span class="text-sm">Video Editors</span>
         </div>
         <div
@@ -59,9 +59,9 @@ class: text-center
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-code-2 class="w-6 h-6 text-red-500"/>
+          <lucide-code-2 class="member-icon"/>
           <span class="text-sm">Developers</span>
         </div>
         <div
@@ -69,27 +69,29 @@ class: text-center
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-palette class="w-6 h-6 text-red-500"/>
+          <lucide-palette class="member-icon"/>
           <span class="text-sm">Graphic Designers</span>
-        </div><div
+        </div>
+        <div
           v-click="6"
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-presentation class="w-6 h-6 text-red-500"/>
+          <lucide-presentation class="member-icon"/>
           <span class="text-sm">Marketing Managers</span>
-        </div><div
+        </div>
+        <div
           v-click="7"
           v-motion
           :initial="{ filter: 'blur(12px)', opacity: 0, x: 50 }"
           :enter="{ filter: 'blur(0px)', opacity: 1, x: 0 }"
-          class="flex items-center gap-3 p-3 bg-zinc-900/50 rounded-lg backdrop-blur-sm transform hover:scale-105 border border-zinc-800 hover:border-red-600/50"
+          class="team-member"
         >
-          <lucide-megaphone class="w-6 h-6 text-red-500"/>
+          <lucide-megaphone class="member-icon"/>
           <span class="text-sm">Advertising Experts</span>
         </div>
       </div>
@@ -97,3 +99,49 @@ class: text-center
   </div>
 </div>
 
+<style>
+.agency-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #00AFEF, #87CEFA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 50px;
+}
+
+.team-label {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.highlight-text {
+  color: #00AFEF;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(24, 24, 27, 0.5);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  transform: none;
+  border: 1px solid #27272A;
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+  border-color: rgba(0, 175, 239, 0.5);
+}
+
+.member-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #00AFEF;
+}
+</style>

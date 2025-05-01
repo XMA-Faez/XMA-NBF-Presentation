@@ -2,9 +2,8 @@
 layout: center
 class: text-center
 ---
-
 <h1 class="gradient-heading">
-  A-Z Marketing Solutions
+  Full-Scale Marketing Solutions
 </h1>
 
 <div class="services-grid">
@@ -38,12 +37,12 @@ class: text-center
     v-click="3"
     v-motion
     :initial="{ filter: 'blur(12px)', opacity: 0, y: 20 }"
-    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0,  }"
+    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0 }"
     class="service-card"
   >
     <div class="service-content">
       <lucide-layout-dashboard class="service-icon"/>
-      <h3 class="service-title">CRM Solutions</h3>
+      <h3 class="service-title">Management</h3>
     </div>
   </div>
   
@@ -51,33 +50,7 @@ class: text-center
     v-click="4"
     v-motion
     :initial="{ filter: 'blur(12px)', opacity: 0, y: 20 }"
-    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0,  }"
-    class="service-card"
-  >
-    <div class="service-content">
-      <lucide-globe class="service-icon"/>
-      <h3 class="service-title">Website Development</h3>
-    </div>
-  </div>
-  
-  <div
-    v-click="5"
-    v-motion
-    :initial="{ filter: 'blur(12px)', opacity: 0, y: 20 }"
-    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0,  }"
-    class="service-card"
-  >
-    <div class="service-content">
-      <lucide-bot class="service-icon"/>
-      <h3 class="service-title">AI & Automation</h3>
-    </div>
-  </div>
-  
-  <div
-    v-click="6"
-    v-motion
-    :initial="{ filter: 'blur(12px)', opacity: 0, y: 20 }"
-    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0,  }"
+    :enter="{ filter: 'blur(0px)', opacity: 1, y: 0 }"
     class="service-card"
   >
     <div class="service-content">
@@ -91,11 +64,17 @@ class: text-center
 .gradient-heading {
   margin-bottom: 2.5rem;
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #00AFEF, #87CEFA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   max-width: 800px;
   margin: 0 auto;
@@ -115,6 +94,12 @@ class: text-center
   justify-content: center;
 }
 
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 175, 239, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(0, 175, 239, 0.1);
+}
+
 .service-content {
   display: flex;
   flex-direction: column;
@@ -125,7 +110,7 @@ class: text-center
 .service-icon {
   width: 2.5rem;
   height: 2.5rem;
-  color: #EF4444;
+  color: #00AFEF;
 }
 
 .service-title {
