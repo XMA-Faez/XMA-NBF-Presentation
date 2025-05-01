@@ -1,4 +1,4 @@
-<h1 class="text-[#00AFEF] text-center font-bold">Inspiration Gallery</h1>
+<h1 class="text-center font-bold">Inspiration Gallery</h1>
 
 <ContentGallery />
 

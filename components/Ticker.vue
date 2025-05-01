@@ -1,5 +1,9 @@
 <template>
-  <span ref="spanRef" :class="cn('inline-block tabular-nums text-[#00AFEF] tracking-wider', props.class)">
+  <span 
+    ref="spanRef" 
+    :class="cn('inline-block tabular-nums tracking-wider', props.class)"
+    :style="{ color: color }"
+  >
     {{ output }}
   </span>
 </template>
@@ -19,6 +23,7 @@ interface NumberTickerProps {
   decimalPlaces?: number;
   class?: string;
   transition?: TransitionsPresetsKeys;
+  color?: string;
 }
 
 const spanRef = ref<HTMLSpanElement>();
@@ -30,6 +35,7 @@ const props = withDefaults(defineProps<NumberTickerProps>(), {
   duration: 1000,
   decimalPlaces: 2,
   transition: "easeOutCubic",
+  color: "#00AFEF", // Default color
 });
 
 const transitionValue = ref(props.direction === "down" ? props.value : 0);
